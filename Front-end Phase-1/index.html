@@ -5,24 +5,19 @@
     <title>Dummy</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <header class="bg-blue-400 text-white gap-x-3 hover:text-lg">
-    <nav class="max-w-6xl mx-auto px-6 sm:p-8 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="text-2xl w-10 h-10 grid place-items-center rounded-full bg-white text-blue-500 font-bold">🤪</div>
-        <span class="text-xl font-semibold p-2">Baibhab's Co</span>
-      </div>
-      <ul class="flex font-semibold gap-8 items-center px-2">
-        <li><a href="#home" class="hover:underline">Home</a></li>
-        <li><a href="#about" class="hover:underline">About</a></li>
-        <li><a href="#projects" class="hover:underline">Projects</a></li>
-        <li><a href="#contacts" class="hover:underline">Contact</a></li>
-      </ul>
-      <div class="flex items-center gap-4 h-10">
-        <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-full active:scale-95">Sign in</button>
-      </div>
-    </nav>
-  </header>
   <body class="bg-gray-100 text-gray-900">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <div class="text-xl font-semibold tracking-tight">Baibhab<span>.dev</span></div>
+        <nav class="hidden md:flex items-center gap-8 text-gray-600 text-md font-medium">
+          <a href="#" class="hover:text-gray-900 transition">Home</a>
+          <a href="#" class="hover:text-gray-900 transition">Features</a>
+          <a href="#" class="hover:text-gray-900 transition">Showcase</a>
+          <a href="#" class="hover:text-gray-900 transition">Contact</a>
+        </nav>
+        <button class="md:hidden text-gray-600 text-2xl">☰</button>
+      </div>
+    </header>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <section class="py-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
@@ -30,7 +25,7 @@
           <p class="mt-6 text-lg text-gray-600 leading-relaxed">Tailwind helps you design modern, clean, responsive interfaces without writing a single line of css</p>
           <button class="mt-8 bg-indigo-600 text-white px-8 py-3 rounded-md shadow hover:bg-indigo-700 active:scale-95 transition">Get Started</button>
         </div>
-        <img src="pic.png" class="rounded-xl shadow-xl">
+        <img src="pic.png" alt="Tailwind CSS showcase" class="rounded-xl shadow-xl">
       </section>
       <section class="py-20">
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 opacity-0 translate-y-6 transition-all duration-700" id="features">
@@ -67,9 +62,9 @@
       <section class="py-20">
         <h2 class="text-4xl font-bold tracking-tight text-center mb-12">Showcase</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <img src="IMG_9258.JPEG" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transition"/>
-          <img src="IMG_1339.JPEG" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transition"/>
-          <img src="IMG_1280.JPEG" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transition"/>
+          <img src="IMG_9258.JPEG" alt="Showcase image 1" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"/>
+          <img src="IMG_1339.JPEG" alt="Showcase image 2" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"/>
+          <img src="IMG_1280.JPEG" alt="Showcase image 3" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"/>
         </div>
       </section>
       <section class="bg-gray-100 py-12">
@@ -90,7 +85,7 @@
             </div>
             <div class="relative">
               <div class="aspect-[16/10] rounded-xl bg-gray-200 shadow-inner overflow-hidden">
-                <img src="IMG_1341.JPEG" />
+                <img src="IMG_1341.JPEG" alt="Hero section image" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -101,14 +96,14 @@
         <button class="bg-gray-800 text-white px-10 py-4 rounded-lg shadow hover:bg-black active:scale-95 transition">Start Now</button>
       </section>
     </div>
+    <footer class="py-12 text-center text-gray-500">&copy; 2025 - All rights reserved.</footer>
+    <script>
+      const hero = document.getElementById('hero');
+      const revealHero = () => {
+        hero.classList.remove('opacity-0', 'translate-y-6');
+        hero.classList.add('opacity-100', 'translate-y-0');
+      };
+      window.addEventListener('DOMContentLoaded', revealHero);
+    </script>
   </body>
-  <script>
-    const hero = document.getElementById('hero');
-    const revealHero = () => {
-      hero.classList.remove('opacity-0', 'translate-y-6');
-      hero.classList.add('opacity-100', 'translate-y-0');
-    };
-    window.addEventListener('DOMContentLoaded', revealHero);
-  </script>
-  <footer class="py-12 text-center text-gray-500">&copy; 2025 - All rights reserved.</footer>
 </html>
