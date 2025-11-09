@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dummy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <header class="bg-blue-400 text-white gap-x-3 hover:text-lg">
+    <nav class="max-w-6xl mx-auto px-6 sm:p-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="text-2xl w-10 h-10 grid place-items-center rounded-full bg-white text-blue-500 font-bold">🤪</div>
+        <span class="text-xl font-semibold p-2">Baibhab's Co</span>
+      </div>
+      <ul class="flex font-semibold gap-8 items-center px-2">
+        <li><a href="#home" class="hover:underline">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#projects" class="hover:underline">Projects</a></li>
+        <li><a href="#contacts" class="hover:underline">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-4 h-10">
+        <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-full active:scale-95">Sign in</button>
+      </div>
+    </nav>
+  </header>
+  <body class="bg-gray-100 text-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section class="py-20 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-5xl font-bold tracking-tight sm:text-6xl">Build Beautiful UIs Fast with Tailwind</h1>
+          <p class="mt-6 text-lg text-gray-600 leading-relaxed">Tailwind helps you design modern, clean, responsive interfaces without writing a single line of css</p>
+          <button class="mt-8 bg-indigo-600 text-white px-8 py-3 rounded-md shadow hover:bg-indigo-700 active:scale-95 transition">Get Started</button>
+        </div>
+        <img src="pic.png" class="rounded-xl shadow-xl">
+      </section>
+      <section class="py-20">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 opacity-0 translate-y-6 transition-all duration-700" id="features">
+          <div class="w-full bg-neutral-900 text-white p-6 sm:p-8 rounded-lg shadow-lg flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transition-transform duration-200">
+            <div class="w-1/6 h-10 grid place-items-center rounded-full bg-white/10 text-yellow-300">⭐A</div>
+            <h2 class="text-xl md:text-2xl sm:text-2xl font-semibold tracking-tight">Tailwind</h2>
+            <p class="text-lg text-white sm:text-base leading-relaxed">Tailwind project</p>
+            <button class="self-center w-[150px] bg-indigo-500 hover:bg-indigo-600 active:scale-95 text-white px-4 py-2 rounded-md shadow transition">Get Started</button>
+          </div>
+          <div class="w-full bg-neutral-900 text-white p-6 sm:p-8 rounded-lg shadow-lg flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transition-transform duration-200">
+            <div class="w-1/6 h-10 grid place-items-center rounded-full bg-white/10 text-emerald-300">🚀B</div>
+            <h2 class="text-xl md:text-2xl sm:text-2xl font-semibold tracking-tight">Speed</h2>
+            <p class="text-lg text-white sm:text-base leading-relaxed">Build fast with utility classes.</p>
+            <button class="self-center w-[150px] bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white px-4 py-2 rounded-md shadow transition">Learn More</button>
+          </div>
+          <div class="w-full bg-neutral-900 text-white p-6 sm:p-8 rounded-lg flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transition-transform duration-200">
+            <div class="w-[50px] h-10 bg-white/10 rounded-full grid place-items-center">📦C</div>
+            <h2 class="text-xl md:text-2xl sm:text-2xl font-semibold tracking-tight">Components</h2>
+            <p class="text-lg text-white  sm:text-base leading-relaxed">Compose UIs from tiny pieces.</p>
+            <button class="self-center bg-sky-500 hover:bg-sky-600 px-4 py-2 rounded-md shadow hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-200">Docs</button>
+          </div>
+        </div>
+      </section>
+      <script>
+        const features = document.getElementById('features');
+        const io = new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting) {
+            features.classList.remove('opacity-0', 'translate-y-6');
+            features.classList.add('opacity-100', 'translate-y-0');
+          }
+        },{threshold:0.2});
+        io.observe(features);
+      </script>
+      <section class="py-20">
+        <h2 class="text-4xl font-bold tracking-tight text-center mb-12">Showcase</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <img src="IMG_9258.JPEG" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transition"/>
+          <img src="IMG_1339.JPEG" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transition"/>
+          <img src="IMG_1280.JPEG" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transition"/>
+        </div>
+      </section>
+      <section class="bg-gray-100 py-12">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="grid gap-10 md:grid-cols-2 items-center opacity-0 translate-y-6 transition-all duration-700" id="hero">
+            <div class="space-y-6">
+              <span class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">⭐ New — Tailwind mastery track</span>
+              <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Build beautiful UIs <span class="text-indigo-600">fast</span></h1>
+              <p class="text-gray-600 text-lg leading-relaxed">Learn by building: layouts, components, animations, and responsive design - all with Tailwind</p>
+              <div class="flex flex-wrap gap-4">
+                <a class="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-medium shadow transition">Start now</a>
+                <a class="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-white hover:bg-gray-50 active:scale-95 text-gray-900 border border-gray-200 shadow-sm transition">View components</a>
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-500">
+                <div class="w-8 h-8 rounded-full bg-indigo-200 grid place-items-center text-indigo-800 font-semibold">B</div>
+                <p><span class="font-medium text-gray-700">Baibhab</span> . 50-day roadmap in progress</p>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="aspect-[16/10] rounded-xl bg-gray-200 shadow-inner overflow-hidden">
+                <img src="IMG_1341.JPEG" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-20 text-center">
+        <h2 class="text-4xl font-bold tracking-tight mb-6">Ready to Build Something Amazing?</h2>
+        <button class="bg-gray-800 text-white px-10 py-4 rounded-lg shadow hover:bg-black active:scale-95 transition">Start Now</button>
+      </section>
+    </div>
+  </body>
+  <script>
+    const hero = document.getElementById('hero');
+    const revealHero = () => {
+      hero.classList.remove('opacity-0', 'translate-y-6');
+      hero.classList.add('opacity-100', 'translate-y-0');
+    };
+    window.addEventListener('DOMContentLoaded', revealHero);
+  </script>
+  <footer class="py-12 text-center text-gray-500">&copy; 2025 - All rights reserved.</footer>
+</html>
