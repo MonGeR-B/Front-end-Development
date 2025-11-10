@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dummy</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -9,7 +10,7 @@
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div class="text-xl font-semibold tracking-tight">Baibhab<span>.dev</span></div>
-        <nav class="hidden md:flex items-center gap-8 text-gray-600 text-md font-medium">
+        <nav class="hidden md:flex items-center gap-8 text-gray-600 text-sm font-medium">
           <a href="#" class="hover:text-gray-900 transition">Home</a>
           <a href="#" class="hover:text-gray-900 transition">Features</a>
           <a href="#" class="hover:text-gray-900 transition">Showcase</a>
@@ -18,6 +19,15 @@
         <button class="md:hidden text-gray-600 text-2xl">☰</button>
       </div>
     </header>
+    <!-- Mobile Menu -->
+     <div id="mobileMenu" class="md:hidden bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm absolute top-16 left-0 w-full z-40 opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-300">
+      <nav class="flex flex-col gap-4 p-6 text-gray-700 text-lg font-medium">
+        <a href="#" class="hover:text-gray-900 transition">Home</a>
+        <a href="#" class="hover:text-gray-900 transition">Features</a>
+        <a href="#" class="hover:text-gray-900 transition">Showcase</a>
+        <a href="#" class="hover:text-gray-900 transition">Contact</a>
+      </nav>
+     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <section class="py-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
@@ -30,13 +40,13 @@
       <section class="py-20">
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 opacity-0 translate-y-6 transition-all duration-700" id="features">
           <div class="w-full bg-neutral-900 text-white p-6 sm:p-8 rounded-lg shadow-lg flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transition-transform duration-200">
-            <div class="w-1/6 h-10 grid place-items-center rounded-full bg-white/10 text-yellow-300">⭐A</div>
+            <div class="w-[50px] h-10 grid place-items-center rounded-full bg-white/10 text-yellow-300">⭐A</div>
             <h2 class="text-xl md:text-2xl sm:text-2xl font-semibold tracking-tight">Tailwind</h2>
             <p class="text-lg text-white sm:text-base leading-relaxed">Tailwind project</p>
             <button class="self-center w-[150px] bg-indigo-500 hover:bg-indigo-600 active:scale-95 text-white px-4 py-2 rounded-md shadow transition">Get Started</button>
           </div>
           <div class="w-full bg-neutral-900 text-white p-6 sm:p-8 rounded-lg shadow-lg flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transition-transform duration-200">
-            <div class="w-1/6 h-10 grid place-items-center rounded-full bg-white/10 text-emerald-300">🚀B</div>
+            <div class="w-[50px] h-10 grid place-items-center rounded-full bg-white/10 text-emerald-300">🚀B</div>
             <h2 class="text-xl md:text-2xl sm:text-2xl font-semibold tracking-tight">Speed</h2>
             <p class="text-lg text-white sm:text-base leading-relaxed">Build fast with utility classes.</p>
             <button class="self-center w-[150px] bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white px-4 py-2 rounded-md shadow transition">Learn More</button>
@@ -104,6 +114,16 @@
         hero.classList.add('opacity-100', 'translate-y-0');
       };
       window.addEventListener('DOMContentLoaded', revealHero);
+    </script>
+    <script>
+      const menuBtn = document.querySelector('header button');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('opacity-0');
+        mobileMenu.classList.toggle('pointer-events-none');
+        mobileMenu.classList.toggle('-translate-y-4');
+        mobileMenu.classList.toggle('translate-y-0');
+      });
     </script>
   </body>
 </html>
