@@ -1,35 +1,35 @@
 <!doctype html>
-<html>
+<html class="scroll-smooth">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dummy</title>
+    <title>Dummy⚡</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-100 text-gray-900">
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <div class="text-xl font-semibold tracking-tight">Baibhab<span>.dev</span></div>
-        <nav class="hidden md:flex items-center gap-8 text-gray-600 text-sm font-medium">
-          <a href="#" class="hover:text-gray-900 transition">Home</a>
-          <a href="#" class="hover:text-gray-900 transition">Features</a>
-          <a href="#" class="hover:text-gray-900 transition">Showcase</a>
-          <a href="#" class="hover:text-gray-900 transition">Contact</a>
-        </nav>
-        <button class="md:hidden text-gray-600 text-2xl">☰</button>
-      </div>
+    <header id="siteHeader" class="sticky top-0 z-50 bg-black/80 backdrop-blur supports-[backdrop-filter]:bg-black/60">
+      <nav class="mx-auto max-w-7xl px-4 h-14 flex items-center justify-between">
+        <a href="#home" class="font-semibold text-white">Baibhab.dev 🐲</a>
+        <ul class="hidden md:flex items-center gap-6">
+          <li><a href="#home" class="nav-link py-2 transition text-white hover:text-gray-300">Home</a></li>
+          <li><a href="#products" class="nav-link py-2 transition text-white hover:text-gray-300">Products</a></li>
+          <li><a href="#about" class="nav-link py-2 transition text-white hover:text-gray-300">About</a></li>
+          <li><a href="#contact" class="nav-link py-2 transition text-white hover:text-gray-300">Contact</a></li>
+        </ul>
+        <button class="md:hidden text-white text-2xl transition-opacity duration-300">☰</button>
+      </nav>
     </header>
     <!-- Mobile Menu -->
-     <div id="mobileMenu" class="md:hidden bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm absolute top-16 left-0 w-full z-40 opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-300">
+    <div id="mobileMenu" class="md:hidden bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm absolute top-14 left-0 w-full z-40 opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-300">
       <nav class="flex flex-col gap-4 p-6 text-gray-700 text-lg font-medium">
-        <a href="#" class="hover:text-gray-900 transition">Home</a>
-        <a href="#" class="hover:text-gray-900 transition">Features</a>
-        <a href="#" class="hover:text-gray-900 transition">Showcase</a>
-        <a href="#" class="hover:text-gray-900 transition">Contact</a>
+        <a href="#home" class="hover:text-gray-900 transition">Home</a>
+        <a href="#products" class="hover:text-gray-900 transition">Products</a>
+        <a href="#about" class="hover:text-gray-900 transition">About</a>
+        <a href="#contact" class="hover:text-gray-900 transition">Contact</a>
       </nav>
-     </div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <section class="py-20 grid md:grid-cols-2 gap-12 items-center">
+      <section id="home" class="py-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <h1 class="text-5xl font-bold tracking-tight sm:text-6xl">Build Beautiful UIs Fast with Tailwind</h1>
           <p class="mt-6 text-lg text-gray-600 leading-relaxed">Tailwind helps you design modern, clean, responsive interfaces without writing a single line of css</p>
@@ -37,7 +37,7 @@
         </div>
         <img src="pic.png" alt="Tailwind CSS showcase" class="rounded-xl shadow-xl">
       </section>
-      <section class="py-20">
+      <section id="products" class="py-20">
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 opacity-0 translate-y-6 transition-all duration-700" id="features">
           <div class="w-full bg-neutral-900 text-white p-6 sm:p-8 rounded-lg shadow-lg flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transition-transform duration-200">
             <div class="w-[50px] h-10 grid place-items-center rounded-full bg-white/10 text-yellow-300">⭐</div>
@@ -69,15 +69,30 @@
         },{threshold:0.2});
         io.observe(features);
       </script>
-      <section class="py-20">
+      <section id="showcase" class="opacity-0 translate-y-6 transition-all duration-700">
         <h2 class="text-4xl font-bold tracking-tight text-center mb-12">Showcase</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <img src="IMG_9258.JPEG" alt="Showcase image 1" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"/>
           <img src="IMG_1339.JPEG" alt="Showcase image 2" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"/>
           <img src="IMG_1280.JPEG" alt="Showcase image 3" class="rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"/>
         </div>
+        <script>
+          const revealables = document.querySelectorAll('section.opacity-0');
+          const revealObs = new IntersectionObserver(
+            entries => {
+              entries.forEach(e => {
+                if (e.isIntersecting) {
+                  e.target.classList.remove('opacity-0', 'translate-y-6');
+                  revealObs.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.15 }
+          );
+          revealables.forEach(el => revealObs.observe(el));
+        </script>
       </section>
-      <section class="bg-gray-100 py-12">
+      <section id="about" class="bg-gray-100 py-12">
         <div class="max-w-6xl mx-auto px-4">
           <div class="grid gap-10 md:grid-cols-2 items-center opacity-0 translate-y-6 transition-all duration-700" id="hero">
             <div class="space-y-6">
@@ -101,7 +116,7 @@
           </div>
         </div>
       </section>
-      <section class="py-20 text-center">
+      <section id="contact" class="py-20 text-center">
         <h2 class="text-4xl font-bold tracking-tight mb-6">Ready to Build Something Amazing?</h2>
         <button class="bg-gray-800 text-white px-10 py-4 rounded-lg shadow hover:bg-black active:scale-95 transition">Start Now</button>
       </section>
@@ -124,28 +139,50 @@
         mobileMenu.classList.toggle('translate-y-0');
       });
     </script>
-  </body>
-  <section class="px-6 py-12">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-white rounded-lg shadow p-6">
-          <div class="text-2xl w-10 h-10 grid place-items-center rounded-full bg-indigo-50 text-indigo-600 mb-3">⚡</div>
-          <h3 class="text-lg font-semibold tracking-tight">Fast Interaction</h3>
-          <p class="mt-1 text-gray-600 text-sm">Ship components quickly with Tailwind utilities</p>
+    <script>
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
+      const byHref = id => navLinks.find(a => a.getAttribute('href') === `#${id}`);
+
+      const obs = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const link = byHref(entry.target.id);
+            if (!link) return;
+            if (entry.isIntersecting) {
+              navLinks.forEach(a => a.classList.remove('text-white', 'border-b-2', 'border-white'));
+              link.classList.add('text-white', 'border-b-2', 'border-white');
+            }
+          });
+        },
+        { root: null, rootMargin: '0px 0px -60% 0px', threshold: 0.25}
+      );
+
+      sections.forEach(s => obs.observe(s))
+    </script>
+    
+    <section class="px-6 py-12">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-2xl w-10 h-10 grid place-items-center rounded-full bg-indigo-50 text-indigo-600 mb-3">⚡</div>
+            <h3 class="text-lg font-semibold tracking-tight">Fast Interaction</h3>
+            <p class="mt-1 text-gray-600 text-sm">Ship components quickly with Tailwind utilities</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-2xl w-10 h-10 grid place-items-center rounded-full bg-indigo-50 text-indigo-600 mb-3">🎑</div>
+            <h3 class="text-lg font-semibold tracking-tight">Roadmap</h3>
+            <p class="mt-1 text-gray-600 text-sm">Brain and AI with a mix</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-2xl w-10 h-10 grid place-items-center rounded-full bg-indigo-50 text-indigo-600 mb-3">💀</div>
+            <h3 class="text-lg font-semibold tracking-tight">About Project</h3>
+            <p class="mt-1 text-gray-600 text-sm">Cooking something crazy</p>
+          </div>        
         </div>
-        <div class="bg-white rounded-lg shadow p-6">
-          <div class="text-2xl w-10 h-10 grid place-items-center rounded-full bg-indigo-50 text-indigo-600 mb-3">🎑</div>
-          <h3 class="text-lg font-semibold tracking-tight">Roadmap</h3>
-          <p class="mt-1 text-gray-600 text-sm">Brain and AI with a mix</p>
-        </div>
-        <div class="bg-white rounded-lg shadow p-6">
-          <div class=" text-2xl w-10 h-10 grid place-items-center rounded-full bg-indigo-50 text-indigo-600 mb-3">💀</div>
-          <h3 class="text-lg font-semibold tracking-tight">About Project</h3>
-          <p class="mt-1 text-gray-600 text-sm">Cooking something crazy</p>
-        </div>
-        
       </div>
-    </div>
-  </section>
-  <footer class="py-12 text-center text-gray-500">&copy; 2025 - All rights reserved.</footer>
+    </section>
+    
+    <footer class="py-12 text-center text-gray-500">&copy; 2025 - All rights reserved.</footer>
+  </body>
 </html>
